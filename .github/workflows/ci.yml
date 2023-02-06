@@ -1,0 +1,18 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ci/setup
+        uses: mattermost/actions/plugin-ci/setup@c6f9546e231472af1b258d376e868cbb8fa7e49e
