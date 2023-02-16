@@ -1,5 +1,10 @@
 name: cd
 on:
+  workflow_run:
+    workflows: ["ci"]
+    branches-ignore: ["*"]
+    types:
+      - completed
   push:
     tags:
       - "^v.*"
